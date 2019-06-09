@@ -17,22 +17,22 @@
                                 <label class="block uppercase text-left tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                     Email
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-first-name" type="text" placeholder="Email: e.g arnold@ndolestudio.com">
+                                <input v-model="inputEmail" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-first-name" type="text" placeholder="Email: e.g arnold@ndolestudio.com">
                             </div>
                             <div class="w-full md:w-1/4 px-3 mb-10">
                                 <label class=" text-left block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                                     Size
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="e.g 400">
+                                <input v-model="inputSize" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="e.g 400">
                             </div>
 
                             <div class="w-full px-3">
-                                <input class="appearance-none block w-full bg-red-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" placeholder="Your URL will appear here" type="url" readonly :value="url">
+                                <input class="appearance-none block w-full bg-red-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="grid-last-name" placeholder="Your URL will appear here" type="url" readonly :value="url">
                             </div>
 
                             <div class="w-full flex flex-wrap mt-10">
                                 <div class="w-1/4 m-auto">
-                                    <img :src="url" class="border-2 border-grey-900 rounded-full"  alt="Gravatar Image">
+                                    <img :src="imageUrl" class="border-2 border-grey-900 rounded-full"  alt="Gravatar Image">
                                 </div>
                             </div>
                         </div>
@@ -48,13 +48,25 @@
 </template>
 
 <script>
+
+import md5 from 'blueimp-md5';
+
 export default {
     name: "App",
     data: function () {
         return {
-            size: 400,
-            email: 'arnold@ndoelstudio.com',
-            url: 'https://gravatar.com/avatar/39401250ba1dc70ec3375bd6d0d8a919?s=600'
+            validSize: 400,
+            validEmail: 'arnold@ndolestudio.com',
+            inputSize: '',
+            inputEmail: ''
+        }
+    },
+    computed: {
+        url: function () {
+            return 'https://gravatar.com/avatar/' + md5(this.inputEmail) +'?s=' + this.inputSize;
+        },
+        imageUrl: function  () {
+            return 'https://gravatar.com/avatar/' + md5(this.inputEmail) +'?s=400';
         }
     },
 }
