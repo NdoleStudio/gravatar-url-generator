@@ -20,3 +20,5 @@ yarn-error.log*
 *.sw?
 
 dist
+public/googleffe8c902809f9e32.html
+.firebase

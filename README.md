@@ -1,29 +1,9 @@
-# gravatar-url-generator
+# Gravatar URl Generator
 
-## Project setup
-```
-npm install
-```
+This is a website which helps generate a gravatar url based on your email address
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+URL: **[https://gravatar-url-generator.web.app](https://gravatar-url-generator.web.app/)**
 
-### Compiles and minifies for production
-```
-npm run build
-```
+# Running Locally
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+You can run the project locally with `npm run serve`
