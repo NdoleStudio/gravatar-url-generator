@@ -29,7 +29,7 @@
                                 <input @focus="$event.target.select()" class=" appearance-none block w-full bg-red-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" placeholder="Your URL will appear here" type="url" readonly :value="url">
                             </div>
                             <div class="w-2/12 px-3">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded" v-clipboard:copy="url" v-clipboard:success="onCopySuccess" v-clipboard:error="onCopyError" v-tooltip="{content:'URL Coppied successfully!', trigger: 'click', placement: 'bottom'}" >
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded input-height" v-clipboard:copy="url" v-clipboard:success="onCopySuccess" v-clipboard:error="onCopyError" v-tooltip="{content:'URL Coppied successfully!', trigger: 'click', placement: 'bottom', autoHide: true}" >
                                     Copy to Clipboard
                                 </button>
                             </div>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="w-full text-center -mt-8">
-            Created with ❤️ by <a class="font-bold text-blue-600" href="https://twitter.com/NdoleStudio" target="_blank">Ndole Studio LLC</a>.
+            Created with ❤️ by <a class="font-bold text-blue-600" href="https://twitter.com/NdoleStudio" target="_blank">Ndole Studio</a>.
         </div>
     </div>
 </template>
@@ -102,6 +102,9 @@ export default {
     }
 }
 
+.input-height {
+    min-height: 44px;
+}
 
 .tooltip {
     display: block !important;
