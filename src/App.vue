@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="flex justify-center h-screen">
-            <div class="lg:w-6/12 md:w-8/12 mt-20 pb-8">
+            <div class="lg:w-6/12 md:w-8/12 mt-16 pb-8">
                 <div class="text-6xl text-center mb-5">
                     Gravatar URL Generator
                 </div>
